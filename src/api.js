@@ -2,8 +2,12 @@ const express = require("express");
 const serverless = require("serverless-http");
 const socketIO = require('socket.io');
 const http = require('http');
+const cors = require('cors');
 
 const app = express();
+app.use(cors({
+  origin: '*' // Replace with your allowed origin
+}));
 const router = express.Router();
 
 router.get("/", (req, res) => {
